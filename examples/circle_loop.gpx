@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="iphone-location-sim"
+     xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>圆形轨迹 (loop demo)</name>
+    <trkseg>
+      <trkpt lat="39.910000" lon="116.400000"></trkpt>
+      <trkpt lat="39.910707" lon="116.400707"></trkpt>
+      <trkpt lat="39.911000" lon="116.402000"></trkpt>
+      <trkpt lat="39.910707" lon="116.403293"></trkpt>
+      <trkpt lat="39.910000" lon="116.404000"></trkpt>
+      <trkpt lat="39.909293" lon="116.403293"></trkpt>
+      <trkpt lat="39.909000" lon="116.402000"></trkpt>
+      <trkpt lat="39.909293" lon="116.400707"></trkpt>
+      <trkpt lat="39.910000" lon="116.400000"></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
