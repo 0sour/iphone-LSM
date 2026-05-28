@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="iphone-location-sim"
+     xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>上海外滩江边走</name>
+    <trkseg>
+      <trkpt lat="31.230400" lon="121.473700"></trkpt>
+      <trkpt lat="31.231000" lon="121.474300"></trkpt>
+      <trkpt lat="31.231600" lon="121.474900"></trkpt>
+      <trkpt lat="31.232300" lon="121.475600"></trkpt>
+      <trkpt lat="31.233000" lon="121.476300"></trkpt>
+      <trkpt lat="31.233700" lon="121.476900"></trkpt>
+      <trkpt lat="31.234500" lon="121.477400"></trkpt>
+      <trkpt lat="31.235300" lon="121.477700"></trkpt>
+      <trkpt lat="31.236100" lon="121.478000"></trkpt>
+      <trkpt lat="31.236900" lon="121.478500"></trkpt>
+      <trkpt lat="31.237700" lon="121.479000"></trkpt>
+      <trkpt lat="31.238500" lon="121.479500"></trkpt>
+      <trkpt lat="31.239300" lon="121.480000"></trkpt>
+      <trkpt lat="31.240100" lon="121.480600"></trkpt>
+      <trkpt lat="31.240900" lon="121.481000"></trkpt>
+      <trkpt lat="31.241700" lon="121.481400"></trkpt>
+      <trkpt lat="31.242500" lon="121.481800"></trkpt>
+      <trkpt lat="31.243300" lon="121.482200"></trkpt>
+      <trkpt lat="31.244100" lon="121.482600"></trkpt>
+      <trkpt lat="31.244900" lon="121.483000"></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
