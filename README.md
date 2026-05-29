@@ -1,9 +1,11 @@
 # iPhone 虚拟定位模拟器
 
-<p align="center">
-  <img src="icon.png" alt="icon" width="96">
-</p>
-
+<<<<<<<<< Temporary merge branch 1
+=========
+<<<<<<<<< Temporary merge branch 1
+类似爱思助手的 iPhone 虚拟定位工具，支持静态定位和轨迹模拟。通过 USB 连接 iPhone，使用 Apple DVT 协议修改手机 GPS 坐标。
+=========
+>>>>>>>>> Temporary merge branch 2
 类似爱思助手的 iPhone 虚拟定位工具，提供**图形界面**和**命令行**两种使用方式。通过 USB 连接 iPhone，使用 Apple DVT 协议修改手机 GPS 坐标。
 
 ## 功能概览
