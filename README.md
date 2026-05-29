@@ -1,6 +1,9 @@
 # iPhone 虚拟定位模拟器
 
-类似爱思助手的 iPhone 虚拟定位工具，通过 USB 连接 iPhone，使用 Apple DVT 协议修改手机 GPS 坐标。GUI 基于 **PySide6 + Win11 Fluent Design** 构建，右侧内嵌 Leaflet 地图实时显示定位。
+<<<<<<<<< Temporary merge branch 1
+类似爱思助手的 iPhone 虚拟定位工具，支持静态定位和轨迹模拟。通过 USB 连接 iPhone，使用 Apple DVT 协议修改手机 GPS 坐标。
+=========
+类似爱思助手的 iPhone 虚拟定位工具，提供**图形界面**和**命令行**两种使用方式。通过 USB 连接 iPhone，使用 Apple DVT 协议修改手机 GPS 坐标。
 
 ## 功能概览
 
@@ -254,19 +257,16 @@ python iphone_location_sim.py stop
 **Q: 拔线后 GPS 会恢复吗？**
 
 会。USB 断开或脚本退出时，iPhone 默认恢复真实 GPS。如果想保持虚拟位置，使用 `--keep-location` 参数或 GUI 中勾选「完成后保持位置」。
-
-**Q: 地图无法加载？**
-
-地图使用 OpenStreetMap 瓦片，需要网络连接。另外请确保已安装 `PySide6-WebEngine`：
-```bash
-pip install PySide6-WebEngine
-```
+>>>>>>>>> Temporary merge branch 2
 
 ## 文件说明
 
 | 文件 | 用途 |
 |------|------|
-| `gui.py` | PySide6 图形化界面（Win11 风格，内嵌地图） |
+<<<<<<<<< Temporary merge branch 1
+| `iphone_location_sim.py` | 主脚本：定位、轨迹模拟 |
+=========
+| `gui.py` | 图形化界面（推荐使用） |
 | `iphone_location_sim.py` | 核心脚本：定位、轨迹模拟、GPX 生成 |
 | `trajectory_tools.py` | 辅助工具：曲线/随机/通勤路线生成 |
 | `setup_check.py` | 一键安装依赖 + 设备连接检测 |
