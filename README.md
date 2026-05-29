@@ -11,6 +11,8 @@
 | 循环轨迹 | ✓ | ✓ | 到达终点后自动折返，无限循环 |
 | 保持位置 | ✓ | ✓ | 完成后不恢复真实 GPS |
 | GPX 轨迹生成 | ✓ | ✓ | 自定义起终点生成轨迹文件 |
+| 实时地图 | ✓ | | 右侧内嵌 Leaflet 地图，实时显示定位与轨迹 |
+| 轨迹预览 | ✓ | | 加载 GPX 后在地图上绘制完整路线 |
 | 预设坐标点 | ✓ | | 一键切换到常用地点 |
 | 设备信息 | ✓ | ✓ | 查看已连接 iPhone 的详细信息 |
 | 进度显示 | ✓ | | 轨迹模拟实时进度条和预计时间 |
@@ -29,12 +31,15 @@
 ## 安装
 
 ```bash
-# 方式一：自动安装并检测
-python setup_check.py
-
-# 方式二：手动安装
-pip install pymobiledevice3
+# 安装依赖
+pip install pymobiledevice3 PySide6
 ```
+
+> **注意：** 如果 PySide6 安装后缺少 WebEngine，需额外安装：
+> ```bash
+> pip install PySide6-WebEngine
+> ```
+> 缺少 WebEngine 时 GUI 仍可正常使用，仅地图面板不显示。
 
 安装完成后，连接 iPhone 并确保已解锁信任，运行 `python iphone_location_sim.py info` 验证连接。
 
@@ -46,29 +51,43 @@ pip install pymobiledevice3
 python gui.py
 ```
 
-或双击 `launcher.bat` 选择 `[0] 图形界面`。
+或双击 `launcher.bat` 选择图形界面。
 
 ### 界面说明
 
-GUI 包含三个功能标签页：
+GUI 采用 **Windows 11 Fluent Design** 风格，左侧为控制面板，右侧为实时地图。包含四个功能标签页：
 
 **① 静态定位** — 设置固定 GPS 位置
 
 - 输入经纬度，点击「设置位置」
 - 内置常用坐标一键切换：北京天安门、上海外滩、广州塔、深圳华强北、成都春熙路、纽约时代广场
 - 点击「恢复真实 GPS」停止虚拟定位
+- 选中此标签时，右侧地图显示当前定位标记
 
 **② 轨迹模拟** — 沿路径移动
 
 - 选择 GPX 轨迹文件（内置三条预设轨迹：天安门、外滩、圆形循环）
 - 或手动输入坐标串，格式：`lat,lng|lat,lng|lat,lng`
+- **选择 GPX 后右侧地图即时预览完整轨迹路线**
 - 可配置移动模式（步行/骑行/驾车/跑步）、速度、更新间隔
 - 支持「循环」和「完成后保持位置」
 - 底部显示实时进度条和预计剩余时间
+- 轨迹运行时地图标记沿路线实时移动
 
 **③ 生成 GPX** — 快速生成直线轨迹文件
 
 - 输入起终点坐标和航点数，生成 GPX 文件供轨迹模拟使用
+
+**④ 关于** — 项目信息
+
+- GitHub 头像、用户名、仓库链接
+- 项目简介与功能列表
+
+### 地图功能
+
+- 使用 OpenStreetMap 免费瓦片，无需 API Key
+- 左侧控制面板与地图通过可拖拽分隔条调整比例
+- 标签页切换时自动调整地图显示内容
 
 ### 连接流程
 
@@ -101,7 +120,7 @@ python iphone_location_sim.py set 22.5431 114.0579    # 深圳市民中心
 项目内置了示例轨迹：
 
 ```bash
-# 白天安门广场步行（约 1.5 公里）
+# 北京天安门广场步行（约 1.5 公里）
 python iphone_location_sim.py track --gpx examples/beijing_tiananmen.gpx --mode walking
 
 # 上海外滩骑车
@@ -140,7 +159,7 @@ python iphone_location_sim.py track --gpx my_route.gpx --speed 20
 # 循环折返（走到终点后原路返回，无限重复）
 python iphone_location_sim.py track --gpx route.gpx --loop
 
-# 到达终点后保持虚拟位置（不在关机/断连后自动恢复 GPS）
+# 到达终点后保持虚拟位置（不断开后自动恢复 GPS）
 python iphone_location_sim.py track --gpx route.gpx --keep-location
 ```
 
@@ -245,4 +264,16 @@ python iphone_location_sim.py stop
 | `trajectory_tools.py` | 辅助工具：曲线/随机/通勤路线生成 |
 | `setup_check.py` | 一键安装依赖 + 设备连接检测 |
 | `launcher.bat` | Windows 交互菜单启动器 |
+| `requirements.txt` | Python 依赖列表 |
 | `examples/` | 示例 GPX 轨迹文件 |
+
+## 技术栈
+
+| 组件 | 技术 |
+|------|------|
+| GUI 框架 | PySide6 (Qt for Python) |
+| 界面风格 | Windows 11 Fluent Design (QSS) |
+| 地图引擎 | Leaflet.js + OpenStreetMap |
+| 地图容器 | QWebEngineView |
+| 设备通信 | pymobiledevice3 (Apple DVT 协议) |
+| 异步 | asyncio + threading |
